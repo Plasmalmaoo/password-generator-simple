@@ -6,9 +6,8 @@ __pycache__/
 dist/
 build/
 *.spec
+*.exe
 
 .DS_Store
 Thumbs.db
-
 *.log
-*.exe
