@@ -5,22 +5,32 @@ lower_case = "abcdefghijklmnopqrstuvwxyz"
 numbers = "0123456789"
 symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?"
 
+# Choose which types of characters to include
 upper, lower, nums, syms = True, True, True, True
 
-all = ""
-
+# Build the character set
+all_chars = ""
 if upper:
-    all += upper_case
+    all_chars += upper_case
 if lower:
-    all += lower_case
+    all_chars += lower_case
 if nums:
-    all += numbers
+    all_chars += numbers
 if syms:
-    all += symbols
+    all_chars += symbols
 
-length = 20
-amount = 10
+print("=== Password Generator ===")
 
-for x in range(amount):
-    password = "".join(random.sample(all, length))
+while True:
+    try:
+        length = int(input("Enter password length: "))
+        amount = int(input("Enter number of passwords to generate: "))
+        break
+    except ValueError:
+        print("Please enter a valid number.")
+
+for _ in range(amount):
+    password = "".join(random.sample(all_chars, length))
     print(password)
+
+input("\nProgram finished. Press Enter to exit...")
